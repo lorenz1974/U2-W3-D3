@@ -45,7 +45,8 @@ const drawChart = () => {
 
         tableHTML += `
             <tr class="">
-                <td class="chartListTitle" colspan="3">${book[0].title}</td>
+                <td><img width="35px" src="${book[0].img}"></td>
+                <td class="chartListTitle" colspan="2">${book[0].title}</td>
             </tr>
             <tr class="border border-0 border-bottom">
                 <td></td>
@@ -165,7 +166,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         <div id="card-${book.asin}" class= "card h-100" >
             <img id="#${book.asin}"
                 src="${book.img}"
-                class="card-img-top object-fit-contain mt-2"
+                class="card-img-top p-2 object-fit-cover img-fluid"
                 alt="${book.title}"
             />
             <div class="card-body d-flex flex-column">
