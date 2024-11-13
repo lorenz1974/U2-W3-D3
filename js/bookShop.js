@@ -29,7 +29,7 @@ const getBooks = (fetchUrl) => {
 const removeCard = (asin) => {
     _D(1, `removeCard: card-${asin}`)
     //document.getElementById(`card-${asin}`).remove()
-    document.getElementById(`card-${asin}`).classList.add('opacity-25')
+    document.getElementById(`card-${asin}`).parentElement.classList.add('d-none')
 }
 
 
@@ -45,7 +45,7 @@ const drawChart = () => {
 
         tableHTML += `
             <tr class="">
-                <td class="chartListTitle" colspan="2">${book[0].title}</td>
+                <td class="chartListTitle" colspan="3">${book[0].title}</td>
             </tr>
             <tr class="border border-0 border-bottom">
                 <td></td>
@@ -165,10 +165,10 @@ document.addEventListener('DOMContentLoaded', async () => {
         <div id="card-${book.asin}" class= "card h-100" >
             <img id="#${book.asin}"
                 src="${book.img}"
-                class="card-img-top w-100 object-fit-cover"
+                class="card-img-top object-fit-contain mt-2"
                 alt="${book.title}"
             />
-            <div class="card-body">
+            <div class="card-body d-flex flex-column">
                 <h5 class="card-title">${book.title}</h5>
                 <p class="card-text">
                     Prezzo: <span id="price-${book.asin}" class="priceText">${book.price}</span>
@@ -176,8 +176,10 @@ document.addEventListener('DOMContentLoaded', async () => {
                 <p class ="card-text">
                     ASIN : ${book.asin}
                 </p>
-                <a href="#${book.asin}" id="remove-${book.asin}" class="btn btn-danger mx-auto">Elimina</a>
-                <a href="#${book.asin}" id="buy-${book.asin}" class="btn btn-primary mx-auto">Compra</a>
+                <div class="d-flex justify-content-around mt-auto">
+                    <a href="#${book.asin}" id="remove-${book.asin}" class="btn btn-danger mx-auto">Elimina</a>
+                    <a href="#${book.asin}" id="buy-${book.asin}" class="btn btn-primary mx-auto">Compra</a>
+                </div>
             </div>
         </div>
         `
