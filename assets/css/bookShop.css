@@ -1,0 +1,16 @@
+.chartListTitle {
+    font-size: 0.7rem;
+}
+
+.chartListPrice {
+    text-align: right;
+}
+
+.chartListRemove {
+    text-align: center;
+    cursor: pointer;
+}
+
+.chartTotal td {
+    padding-top: .5rem;
+}
