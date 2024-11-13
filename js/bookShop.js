@@ -28,8 +28,8 @@ const getBooks = (fetchUrl) => {
 // Funzione che rimuove la card dalla pagina
 const removeCard = (asin) => {
     _D(1, `removeCard: card-${asin}`)
-    document.getElementById(`card-${asin}`).remove()
-
+    //document.getElementById(`card-${asin}`).remove()
+    document.getElementById(`card-${asin}`).classList.add('opacity-25')
 }
 
 
@@ -160,14 +160,14 @@ document.addEventListener('DOMContentLoaded', async () => {
         const newCol = document.createElement('div')
         _D(2, `creating card for: ${book.asin} - ${book.title}`)
 
-        newCol.classList.add('col-12', 'col-md-6', 'col-lg-4', 'col-xxl-3', 'mt-3')
+        newCol.classList.add('col-12', 'col-md-6', 'col-lg-4', 'mt-3')
         newCol.innerHTML = `
-        <div id="card-${book.asin}" class= "card d-flex" >
-                <img id="#${book.asin}"
-                    src="${book.img}"
-                    class="card-img-top"
-                    alt="${book.title}"
-                />
+        <div id="card-${book.asin}" class= "card h-100" >
+            <img id="#${book.asin}"
+                src="${book.img}"
+                class="card-img-top w-100 object-fit-cover"
+                alt="${book.title}"
+            />
             <div class="card-body">
                 <h5 class="card-title">${book.title}</h5>
                 <p class="card-text">
@@ -179,6 +179,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 <a href="#${book.asin}" id="remove-${book.asin}" class="btn btn-danger mx-auto">Elimina</a>
                 <a href="#${book.asin}" id="buy-${book.asin}" class="btn btn-primary mx-auto">Compra</a>
             </div>
+        </div>
         `
 
         _D(3, `card HTML: ${newCol.innerHTML}`)

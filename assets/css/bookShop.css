@@ -1,3 +1,17 @@
+.card {
+    height: 600px;
+}
+
+.card-img-top {
+    width: 300px;
+    height: 300px;
+    object-fit: contain;
+}
+
+.card-img-top:hover {
+    scale: 1.05;
+}
+
 .chartListTitle {
     font-size: 0.7rem;
 }
